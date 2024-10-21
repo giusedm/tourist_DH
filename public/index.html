@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Pianificatore di Percorsi Turistici</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Icona hamburger per aprire e chiudere il form -->
+    <div id="menuIcon" onclick="toggleForm()">
+        &#9776;
+    </div>
+
+    <div id="formContainer" class="form-hidden">
+        <h1>Pianificatore di Percorsi Turistici</h1>
+        <div>
+            <label for="startInput">Punto di Partenza:</label>
+            <input type="text" id="startInput" placeholder="Inserisci manualmente il punto di partenza" />
+        </div>
+        <div>
+            <label for="destinationInput">Destinazione:</label>
+            <input type="text" id="destinationInput" placeholder="Inserisci destinazione finale" />
+        </div>
+        <div>
+            <label for="poiPreferences">Preferenze POI:</label>      
+            <select id="poiPreferences">
+                <option value="storici">Storici</option>
+                <option value="culturali">Culturali</option>
+                <option value="parchi">Parchi</option>
+            </select>
+        </div>
+        <button onclick="calculateRoute()">Calcola Percorso</button>
+    </div>
+
+    <div id="map"></div>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,125 @@
+/* Stile generale */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Mappa */
+#map {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Contenitore del form */
+#formContainer {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    max-width: 320px;  /* Tutti gli elementi ora hanno la stessa larghezza */
+}
+
+/* Nasconde il form */
+.form-hidden {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+/* Icona del menu (hamburger) */
+#menuIcon {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    color: #ffffff;
+    background: #007bff;
+    padding: 12px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    z-index: 1100;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#menuIcon.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Elementi del form */
+input, select, button {
+    width: calc(100% - 20px); /* Tutti gli elementi hanno la stessa larghezza, adattati al contenitore */
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus, select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
+button {
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Migliora la leggibilità del form */
+label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Stile generale del form */
+#formContainer div {
+    margin-bottom: 15px;
+}
+
+/* Stile degli elementi del form per una migliore simmetria */
+h1 {
+    font-size: 20px;
+    color: #007bff;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Stile per garantire che tutti gli elementi siano della stessa altezza e lunghezza */
+input, select {
+    font-size: 16px;
+}
+
+button {
+    font-weight: bold;
+}
+
+/* Riduzione della dimensione per evitare che gli elementi escano dal contenitore */
+#formContainer {
+    max-width: 320px;
+    min-width: 280px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.95);
+}

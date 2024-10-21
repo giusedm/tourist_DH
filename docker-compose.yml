@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  osrm:
+    image: osrm/osrm-backend
+    container_name: osrm_container
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./data:/data
+    entrypoint: >
+      sh -c "
+        if [ ! -f /data/isole-latest.osrm ]; then
+          osrm-extract -p /opt/foot.lua /data/isole-latest.osm.pbf &&
+          sleep 5 &&
+          osrm-contract /data/isole-latest.osrm;
+        fi
+        osrm-routed --algorithm ch /data/isole-latest.osrm
+      "
+    restart: always
+
+  backend:
+    build:
+      context: .
+    container_name: tourist_backend
+    ports:
+      - "3000:3000"
+    working_dir: /usr/src/app/backend
+    volumes:
+      - ./backend:/usr/src/app/backend
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017/tourist-route
+    depends_on:
+      - osrm
+      - mongodb
+    command: sh -c "sleep 10 && npm install && npm install mongoose@latest && node scripts/populate_pois.js && npm start"
+    restart: always
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    restart: always
+
+volumes:
+  mongo_data:
+
+

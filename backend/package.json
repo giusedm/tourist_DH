@@ -1,0 +1,21 @@
+{
+  "name": "tourist-route-demo",
+  "version": "1.0.0",
+  "description": "Applicazione per calcolare percorsi turistici ottimizzati",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@turf/turf": "^6.5.0",
+    "axios": "^0.27.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mongoose": "^8.7.2",
+    "node-fetch": "^2.6.7",
+    "redis": "^3.1.2"
+  },
+  "author": "Il tuo nome",
+  "license": "ISC"
+}
